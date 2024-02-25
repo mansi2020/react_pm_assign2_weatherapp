@@ -1,3 +1,4 @@
+/* CSS for Desktop */
 * {
   margin: 0;
   padding: 0;
@@ -169,7 +170,7 @@ header {
   background-color: #4472c4;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  width: 100vw;
 }
 header > p {
   padding: 20px;
@@ -182,19 +183,18 @@ header > p {
 /* App container */
 .App {
   display: flex;
-  /* justify-content: space-around; */
-  align-items: flex-start;
-  /* margin-top: 50px; */
-  width: 1270px;
-  height: 100%;
-  border: 1px solid grey;
+
+  align-items: center;
+
+  width: 100%;
   padding: 20px;
   gap: 10px;
 }
 
 /* City list styles */
 .city-list {
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
   border: 1px solid grey;
   padding: 20px;
   height: 600px;
@@ -213,16 +213,9 @@ header > p {
 }
 .citylist-buttons {
   display: flex;
-  gap: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
   margin-bottom: 10px;
-}
-table {
-  margin-top: 30px;
-}
-tbody {
-  font-size: 18px;
-  font-weight: 800px;
-  text-align: center;
 }
 .city-list button {
   background-color: #4472c4;
@@ -243,7 +236,8 @@ tbody {
 
 /* Details styles */
 .details {
-  width: 69%;
+  width: 100%;
+  max-width: 900px;
   border: 1px solid grey;
   padding: 20px;
   height: 600px;
@@ -332,9 +326,35 @@ input:focus {
   outline: none;
 }
 
-/* errorMessge style */
-.errorMessge{
+/* errorMessage style */
+.errorMessge {
   font-weight: 600;
   color: red;
   text-align: center;
+}
+
+/* Media Queries for Tablet and Small Devices */
+@media only screen and (min-width: 320px) and (max-width: 900px) {
+  .App {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .city-list {
+    width: 100%;
+    max-width: none;
+    height: auto;
+  }
+
+  .details {
+    width: 100%;
+    max-width: none;
+    height: auto;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  header {
+    width: 100%;
+  }
 }

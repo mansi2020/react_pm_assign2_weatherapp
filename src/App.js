@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./App.css"; 
+import "./App.css";
 
 function App() {
   const [cityList, setCityList] = useState([]);
@@ -40,7 +40,7 @@ function App() {
         }
       }
       setWeatherDataList(newDataList);
-      setError(""); 
+      setError("");
     } catch (error) {
       setError("Failed to fetch weather data. Please try again later."); // Set error message
     }
@@ -83,10 +83,9 @@ function App() {
     const matchedIndex = weatherDataList.findIndex(
       (data) => data.cityName.toLowerCase() === searchTerm.toLowerCase()
     );
-    
-    setHighlightedRowIndex(matchedIndex); 
-  }
 
+    setHighlightedRowIndex(matchedIndex);
+  };
 
   // Handle delete button click in details table
   const handleDelete = (index) => {
@@ -99,17 +98,15 @@ function App() {
 
   // style data for when we search for city
   useEffect(() => {
-    
     const timeoutId = setTimeout(() => {
       setHighlightedRowIndex(null); // Remove highlight
     }, 2000);
-   
+
     return () => clearTimeout(timeoutId);
   }, [highlightedRowIndex]);
 
   // Apply dark mode styles when isDarkMode changes
   useEffect(() => {
-    
     if (isDarkMode) {
       document.body.classList.add("dark-mode");
     } else {
