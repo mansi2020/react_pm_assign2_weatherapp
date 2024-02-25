@@ -12,6 +12,9 @@ This Weather App allows users to fetch weather information for different cities 
 
 ![guideline4](https://github.com/mansi2020/react_pm_assign2_weatherapp/assets/57188328/10645f0e-a834-4bd6-960b-2c53e2347567)  
 
+<h1>Responsive for small and tablet device</h1>  
+
+![image](https://github.com/mansi2020/react_pm_assign2_weatherapp/assets/57188328/14eac056-52ea-456d-84ab-705f7d520c5a)
 
 
 ### Functionalities
@@ -23,6 +26,7 @@ This Weather App allows users to fetch weather information for different cities 
 6. **Data Age Calculation**: Calculate the age of data in hours.
 7. **No Data Message**: Display "No Data" message when there is no data present in the table.
 8. **Dark Mode and Light Mode**: Toggle between dark and light modes for better user experience.
+9. **Responsiveness**: Responsive for medium,small devices and large device
 
 ### Technologies Used
 - React.js for frontend development
