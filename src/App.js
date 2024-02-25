@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from "react";
-import "./App.css"; // Import CSS file for styling
-import Modal from "./Components/Modal";
+import "./App.css"; 
 
 function App() {
-  const [openModal, setOpenModal] = useState(false);
   const [cityList, setCityList] = useState([]);
   const [weatherDataList, setWeatherDataList] = useState([]);
   const [newCity, setNewCity] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedCityIndex, setSelectedCityIndex] = useState(null);
   const [highlightedRowIndex, setHighlightedRowIndex] = useState(null); // State for highlighted row index
   const [error, setError] = useState(null); // State for error message
   const [isDarkMode, setIsDarkMode] = useState(false); // State for dark mode
@@ -28,7 +25,7 @@ function App() {
       return data;
     } catch (error) {
       console.error("Error fetching weather data:", error);
-      throw error; // Rethrow the error to handle it in fetchWeatherForAllCities
+      throw error;
     }
   };
 
@@ -43,21 +40,18 @@ function App() {
         }
       }
       setWeatherDataList(newDataList);
-      setError(""); // Clear any previous errors
+      setError(""); 
     } catch (error) {
-      setOpenModal(true);
       setError("Failed to fetch weather data. Please try again later."); // Set error message
     }
   };
 
-  // Handle "Get Weather" button click
+  //on  button click  Handle Get Weather
   const handleGetWeather = async () => {
     try {
       await fetchWeatherForAllCities();
-      setSelectedCityIndex(0);
       setError("");
     } catch (error) {
-      setOpenModal(true);
       setError("Failed to fetch weather data. Please try again later.");
     }
   };
@@ -77,7 +71,6 @@ function App() {
           );
         }
       } catch (error) {
-        setOpenModal(true);
         setError(
           "Failed to fetch weather data for the city. Please try again later."
         );
@@ -87,18 +80,13 @@ function App() {
 
   // Handle "Search" button click
   const handleSearch = () => {
-    // Your search functionality here
-    setSelectedCityIndex(null); // Clear selected city when searching
     const matchedIndex = weatherDataList.findIndex(
       (data) => data.cityName.toLowerCase() === searchTerm.toLowerCase()
     );
-    setHighlightedRowIndex(matchedIndex); // Highlight the matched row
-  };
+    
+    setHighlightedRowIndex(matchedIndex); 
+  }
 
-  // Handle row click in city list
-  const handleRowClick = (index) => {
-    setSelectedCityIndex(index);
-  };
 
   // Handle delete button click in details table
   const handleDelete = (index) => {
@@ -109,17 +97,19 @@ function App() {
     });
   };
 
+  // style data for when we search for city
   useEffect(() => {
-    // Remove highlight after 2 seconds
+    
     const timeoutId = setTimeout(() => {
       setHighlightedRowIndex(null); // Remove highlight
     }, 2000);
-    // Clear timeout when component unmounts or when searchTerm changes
+   
     return () => clearTimeout(timeoutId);
   }, [highlightedRowIndex]);
 
+  // Apply dark mode styles when isDarkMode changes
   useEffect(() => {
-    // Apply dark mode styles when isDarkMode changes
+    
     if (isDarkMode) {
       document.body.classList.add("dark-mode");
     } else {
@@ -250,7 +240,6 @@ function App() {
               </span>
               <span class="switch__sr">Dark Mode</span>
             </label>
-            
           </button>
         </div>
       </header>
@@ -258,33 +247,27 @@ function App() {
         <div className="city-list">
           <h1>City List</h1>
           <input
-                type="text"
-                value={newCity}
-                onChange={(e) => setNewCity(e.target.value)}
-                placeholder="Enter city"
-                className="searchCityText"
-              />
-              <div className="citylist-buttons">
-              <button onClick={handleAddCity}>Add City</button>
-              <button onClick={handleGetWeather}>Get Weather</button>
-              </div>
-              
-            
+            type="text"
+            value={newCity}
+            onChange={(e) => setNewCity(e.target.value)}
+            placeholder="Enter city"
+            className="searchCityText"
+          />
+          <div className="citylist-buttons">
+            <button onClick={handleAddCity}>Add City</button>
+            <button onClick={handleGetWeather}>Get Weather</button>
+          </div>
+
           <table>
-          <thead>
+            <thead>
               <tr>
                 <th>City</th>
               </tr>
             </thead>
             <tbody>
-              
               {cityList.length > 0 ? (
                 cityList.map((city, index) => (
-                  <tr
-                    key={index}
-                    
-                    onClick={() => handleRowClick(index)}
-                  >
+                  <tr key={index}>
                     <td>{city}</td>
                   </tr>
                 ))
@@ -295,7 +278,7 @@ function App() {
               )}
             </tbody>
           </table>
-          {error && <p>please add proper city</p>}
+          {error && <p className="errorMessge">Please add proper city</p>}
         </div>
         <div className="details">
           <h1>Details</h1>
@@ -337,7 +320,10 @@ function App() {
                       )}
                     </td>
                     <td>
-                      <button onClick={() => handleDelete(index)} id="deleteBtn">
+                      <button
+                        onClick={() => handleDelete(index)}
+                        id="deleteBtn"
+                      >
                         Delete
                       </button>
                     </td>
