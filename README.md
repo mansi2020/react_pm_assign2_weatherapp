@@ -3,13 +3,8 @@
 ### Overview
 This Weather App allows users to fetch weather information for different cities and display it in a tabular format. It consists of two tables: "City List" on the left and "Details" on the right. Users can interact with the app by clicking on buttons like "Get Weather" and "Search" to perform actions like fetching weather data, highlighting rows, editing descriptions, and deleting rows.
 
-### Screenshots
+### Screenshots and Functionality guidance hoe to use.
 
-#### City List
-![City List](city_list.png)
-
-#### Details
-![Details](details.png)
 
 ### Functionalities
 1. **Get Weather**: Fetch weather information for all cities in the city list.
@@ -19,13 +14,14 @@ This Weather App allows users to fetch weather information for different cities 
 5. **Highlighting**: Highlight rows in the city list and details table based on user interactions.
 6. **Data Age Calculation**: Calculate the age of data in hours.
 7. **No Data Message**: Display "No Data" message when there is no data present in the table.
+8. **Dark Mode and Light Mode**: Toggle between dark and light modes for better user experience.
 
 ### Technologies Used
 - React.js for frontend development
 - CSS for styling
 
 ### Learning from the Project
-This project helped in understanding how to integrate APIs to fetch data and display it dynamically in a web application. It also improved my skills in handling user interactions and managing state in React.
+This project helped in understanding how to integrate APIs to fetch data and display it dynamically in a web application. It also improved my skills in handling user interactions and managing state in React. Additionally, implementing dark mode and light mode functionality enhanced my understanding of styling and theme management.
 
 ### Future Improvements
 - Implement pagination for better navigation through large datasets.
