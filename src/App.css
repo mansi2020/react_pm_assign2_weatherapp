@@ -20,7 +20,6 @@ body {
   transition: background-color var(--trans-dur), color var(--trans-dur);
 }
 
-/* toggle button */
 /* Body styles for dark mode */
 body:has(.switch__input:checked) {
   background-color: hsl(var(--hue), 10%, 20%);
