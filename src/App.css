@@ -1,38 +1,342 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
+:root {
+  --hue: 223;
+  --primary: hsl(var(--hue), 90%, 50%);
+  --trans-dur: 0.6s;
+  --trans-timing: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+body {
+  background-color: hsl(var(--hue), 10%, 90%);
+  color: hsl(var(--hue), 10%, 10%);
+  display: flex;
+  height: 100vh;
+  width:100%;
+  transition: background-color var(--trans-dur), color var(--trans-dur);
+  
+}
+
+/* toggle button */
+/* Body styles for dark mode */
+body:has(.switch__input:checked) {
+  background-color: hsl(var(--hue), 10%, 20%);
+  color: hsl(var(--hue), 10%, 90%);
+}
+
+/* Toggle button styles */
+.switch,
+.switch__input {
+  display: block;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.switch {
+  margin: auto;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.switch__icon {
+  color: hsla(var(--hue), 10%, 80%);
+  pointer-events: none;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 25px;
+  height: 25px;
+  transition: color var(--trans-dur), transform var(--trans-dur);
+}
+
+.switch__icon:nth-of-type(2) {
+  right: 2px;
+  left: auto;
+}
+
+.switch__inner,
+.switch__inner-icons {
+  border-radius: 30px;
+  display: block;
+  overflow: hidden;
+  position: absolute;
+  top: 2px;
+  left: 4px;
+  width: 55px;
+  height: 25px;
+}
+
+.switch__inner:before,
+.switch__inner-icons {
+  transition: transform var(--trans-dur) var(--trans-timing);
+  transform: translateX(-30px);
+}
+
+.switch__inner:before {
+  background-color: var(--primary);
+  border-radius: inherit;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.switch__inner-icons {
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.switch__inner-icons .switch__icon {
+  color: hsl(0, 0%, 100%);
+  top: 0px;
+  left: 0px;
+  transform: translateX(30px);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.switch__inner-icons .switch__icon:nth-child(2) {
+  right: 0px;
+  left: auto;
+}
+
+.switch__input {
+  background-color: hsl(0, 0%, 100%);
+  border-radius: 12px;
+  box-shadow: 0 0 0 1px hsla(var(--hue), 90%, 50%, 0),
+    0 2px 8px hsla(var(--hue), 10%, 10%, 0.1);
+  outline: transparent;
+  width: 60px;
+  height: 30px;
+  -webkit-appearance: none;
+  appearance: none;
+  transition: background-color var(--trans-dur), box-shadow var(--trans-dur);
+  border-radius: 40px;
+}
+
+.switch__input:checked {
+  background-color: hsl(var(--hue), 10%, 10%);
+}
+
+.switch__input:checked ~ .switch__icon {
+  color: hsla(var(--hue), 10%, 40%);
+}
+
+.switch__input:checked ~ .switch__inner:before,
+.switch__input:checked ~ .switch__inner-icons {
+  transform: translateX(30px);
+}
+
+.switch__input:not(:checked) ~ .switch__icon:first-of-type,
+.switch__input:checked ~ .switch__icon:nth-of-type(2) {
+  transform: rotate(360deg);
+}
+
+.switch__input:checked ~ .switch__inner-icons .switch__icon:first-of-type {
+  transform: translateX(-30px) rotate(-360deg);
+}
+
+.switch__input:checked ~ .switch__inner-icons .switch__icon:nth-of-type(2) {
+  transform: translateX(-30px) rotate(360deg);
+}
+
+.switch__input:focus-visible {
+  box-shadow: 0 0 0 1px hsla(var(--hue), 90%, 50%, 1),
+    0 2px 8px hsla(var(--hue), 10%, 10%, 0.1);
+}
+
+.switch__sr {
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+}
+
+/* Dark mode toggle button */
+.toggle-dark-mode {
+  position: relative;
+  right: 40px;
+}
+
+.toggle-dark-mode {
+  position: relative;
+  right: 40px;
+}
+
+/* header */
+header {
   display: flex;
-  flex-direction: column;
+  background-color: #4472c4;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  width: 100%;
+}
+header > p {
+  padding: 20px;
   color: white;
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 500;
 }
 
-.App-link {
-  color: #61dafb;
+/* App container */
+.App {
+  display: flex;
+  /* justify-content: space-around; */
+  align-items: flex-start;
+  /* margin-top: 50px; */
+  width: 1270px;
+  height: 100%;
+  border:1px solid grey;
+  padding:20px;
+  gap:10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* City list styles */
+.city-list {
+  width:400px;
+  border:1px solid grey;
+  padding:20px;
+  height:600px;
 }
+
+.city-list h1 {
+  color: #4472c4;
+}
+
+.city-list input[type="text"] {
+  margin-bottom: 10px;
+  padding: 5px;
+  margin-top: 10px;
+  height: 35px;
+  width:100%;
+}
+.citylist-buttons{
+  display:flex;
+  gap:20px;
+  margin-bottom:10px;
+}
+table{
+  margin-top: 30px;
+}
+tbody{
+  font-size: 16px;
+  font-weight: 600px;
+  text-align: center;
+}
+.city-list button {
+  background-color: #4472c4;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  width:48%;
+  font-weight: 600;
+}
+.citylist-buttons button{
+  background-color: rgb(5, 141, 8);
+}
+
+.city-list button:hover {
+  background-color: rgb(3, 101, 5);
+}
+
+/* Details styles */
+.details {
+  width: 69%;
+  border:1px solid grey;
+  padding:20px;
+  height:600px;
+}
+
+.details h1 {
+  color: #4472c4;
+}
+
+.details input[type="text"] {
+  margin-bottom: 10px;
+    padding: 5px;
+    height: 35px;
+}
+
+
+.details button {
+  background-color: #4472c4;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  margin-right: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+#deleteBtn{
+  background-color: red;
+}
+
+.details button:hover {
+  background-color: #0056b3;
+}
+
+/* Table styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border:1px solid grey;
+}
+
+th,
+td,tr {
+  padding: 8px;
+  border: 1px solid grey;
+}
+
+
+th {
+  background-color: #4472c4;
+  color: #ffffff;
+  border:1px solid grey;
+}
+/* 
+.selected {
+  background-color: #d3d3d3;
+} */
+
+.highlighted {
+  background-color: rgb(243, 166, 24);
+}
+
+/* dark mode */
+/* Dark mode styles */
+.dark-mode {
+  background-color: #333;
+  color: #fff;
+}
+
+.dark-mode .modal-content {
+  background-color: #333;
+  color: #fff;
+}
+
+.dark-mode th {
+  background-color: #555;
+}
+
+.dark-mode .selected {
+  background-color: #555;
+}
+
+.dark-mode .highlighted {
+  background-color: #ff7f50;
+}
+
+.toggle-dark-mode button {
+  background-color: transparent;
+  border: none;
+}
+
+input:focus{
+  outline: none;
+}
+
