@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+## Weather App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Overview
+This Weather App allows users to fetch weather information for different cities and display it in a tabular format. It consists of two tables: "City List" on the left and "Details" on the right. Users can interact with the app by clicking on buttons like "Get Weather" and "Search" to perform actions like fetching weather data, highlighting rows, editing descriptions, and deleting rows.
 
-## Available Scripts
+### Screenshots and Functionality guidance hoe to use.
 
-In the project directory, you can run:
 
-### `npm start`
+### Functionalities
+1. **Get Weather**: Fetch weather information for all cities in the city list.
+2. **Search**: Search for a specific city in the details table.
+3. **Editable Description**: Allow users to edit the description field.
+4. **Delete Row**: Delete a row from the details table.
+5. **Highlighting**: Highlight rows in the city list and details table based on user interactions.
+6. **Data Age Calculation**: Calculate the age of data in hours.
+7. **No Data Message**: Display "No Data" message when there is no data present in the table.
+8. **Dark Mode and Light Mode**: Toggle between dark and light modes for better user experience.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Technologies Used
+- React.js for frontend development
+- CSS for styling
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Learning from the Project
+This project helped in understanding how to integrate APIs to fetch data and display it dynamically in a web application. It also improved my skills in handling user interactions and managing state in React. Additionally, implementing dark mode and light mode functionality enhanced my understanding of styling and theme management.
 
-### `npm test`
+### Future Improvements
+- Implement pagination for better navigation through large datasets.
+- Add error handling for API requests to notify users of any failures.
+- Enhance styling and design for a more visually appealing interface.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Installation and Usage
+1. Clone the repository.
+2. Navigate to the project directory.
+3. Install dependencies using `npm install`.
+4. Start the development server using `npm start`.
+5. Access the app in your browser at `http://localhost:3000`.
