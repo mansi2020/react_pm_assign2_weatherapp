@@ -4,6 +4,14 @@
 This Weather App allows users to fetch weather information for different cities and display it in a tabular format. It consists of two tables: "City List" on the left and "Details" on the right. Users can interact with the app by clicking on buttons like "Get Weather" and "Search" to perform actions like fetching weather data, highlighting rows, editing descriptions, and deleting rows.
 
 ### Screenshots and Functionality guidance hoe to use.
+![guidance1](https://github.com/mansi2020/react_pm_assign2_weatherapp/assets/57188328/81441ea8-ab35-489e-90e5-89589ab7fba5)  
+
+![guideline2](https://github.com/mansi2020/react_pm_assign2_weatherapp/assets/57188328/81badf28-a64e-4a04-9ecb-b12d66a30fcc)  
+
+![guideline3](https://github.com/mansi2020/react_pm_assign2_weatherapp/assets/57188328/bdf18cb9-e404-41f2-b70f-41f0f837b419)  
+
+![guideline4](https://github.com/mansi2020/react_pm_assign2_weatherapp/assets/57188328/10645f0e-a834-4bd6-960b-2c53e2347567)  
+
 
 
 ### Functionalities
